@@ -87,6 +87,146 @@ end
    end,
 })
 
+local Toggle = Tab:CreateToggle({
+   Name = "ESP chest",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   for i , v in pairs (workspace:GetDescendants()) do
+  if string.find(v.Name, "Chest") then
+    if v:IsA("Part") then
+      if v.Transparency == 0 then
+                local BillboardGui = Instance.new("BillboardGui")
+		local TextLabel = Instance.new("TextLabel")
+		BillboardGui.Parent = v
+		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui.Active = true
+		BillboardGui.AlwaysOnTop = true
+		BillboardGui.LightInfluence = 1
+		BillboardGui.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Parent = BillboardGui
+		TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+		TextLabel.BackgroundTransparency = 1
+		TextLabel.BorderSizePixel = 0
+		TextLabel.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Font = Enum.Font.SourceSans
+		TextLabel.Text = "Chest"
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14
+		TextLabel.TextWrapped = true
+		if v.Name == "Chest1" then 
+		    TextLabel.TextColor3 = Color3.fromRGB(109,109,109)
+		end
+		if v.Name == "Chest2" then 
+		    TextLabel.TextColor3 = Color3.fromRGB(173,158,21)
+		end
+		if v.Name == "Chest3" then 
+		    TextLabel.TextColor3 = Color3.fromRGB(85, 255, 255)
+		end
+      end
+    end
+  end
+end
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "ESP Flower",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   for i , v in pairs (workspace:GetDescendants()) do
+    if v:IsA("Part") then
+      if string.find(v.Name, "Flower") then
+          if v.Transparency == 0 then
+            local BillboardGui = Instance.new("BillboardGui")
+    		local TextLabel = Instance.new("TextLabel")
+    		BillboardGui.Parent = v
+    		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    		BillboardGui.Active = true
+    		BillboardGui.AlwaysOnTop = true
+    		BillboardGui.LightInfluence = 1
+    		BillboardGui.Size = UDim2.new(0, 100, 0, 25)
+    		TextLabel.Parent = BillboardGui
+    		TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+    		TextLabel.BackgroundTransparency = 1
+    		TextLabel.BorderSizePixel = 0
+    		TextLabel.Size = UDim2.new(0, 100, 0, 25)
+    		TextLabel.Font = Enum.Font.SourceSans
+    		TextLabel.Text = v.Name
+    		TextLabel.TextColor3 = v.Color
+    		TextLabel.TextScaled = true
+    		TextLabel.TextSize = 14
+    		TextLabel.TextWrapped = true
+    		if v.Name == "Flower1" then 
+    			TextLabel.Text = "Blue Flower"
+    		end
+    		if v.Name == "Flower2" then
+    		        TextLabel.Text = "Red Flower"
+    		end
+          end
+      end
+    end
+end
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "ESP Fruit",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   for i, v in pairs(workspace:GetChildren()) do
+    if v:IsA("Tool")  then
+        if v.Fruit then
+                local BillboardGui = Instance.new("BillboardGui")
+		local TextLabel = Instance.new("TextLabel")
+		BillboardGui.Parent = v.Fruit
+		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui.Active = true
+		BillboardGui.AlwaysOnTop = true
+		BillboardGui.LightInfluence = 1
+		BillboardGui.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Parent = BillboardGui
+		TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+		TextLabel.BackgroundTransparency = 1
+		TextLabel.BorderSizePixel = 0
+		TextLabel.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Font = Enum.Font.SourceSans
+		TextLabel.Text = v.Name
+		TextLabel.TextColor3 = v.Fruit.Color
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14
+		TextLabel.TextWrapped = true
+        end
+    end
+    if v:IsA("Model") and v.Name == "Fruit " then
+      if v.Fruit then
+                local BillboardGui = Instance.new("BillboardGui")
+		local TextLabel = Instance.new("TextLabel")
+		BillboardGui.Parent = v
+		BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		BillboardGui.Active = true
+		BillboardGui.AlwaysOnTop = true
+		BillboardGui.LightInfluence = 1
+		BillboardGui.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Parent = BillboardGui
+		TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+		TextLabel.BackgroundTransparency = 1
+		TextLabel.BorderSizePixel = 0
+		TextLabel.Size = UDim2.new(0, 100, 0, 25)
+		TextLabel.Font = Enum.Font.SourceSans
+		TextLabel.Text = "Fruit"
+		TextLabel.TextColor3 = v.Fruit.Color
+		TextLabel.TextScaled = true
+		TextLabel.TextSize = 14
+		TextLabel.TextWrapped = true
+        end
+    end
+end
+   end,
+})
+
 local Tab = Window:CreateTab("scripts", 4483362458)
 
 local Toggle = Tab:CreateToggle({

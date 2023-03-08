@@ -354,4 +354,15 @@ local rs = game:GetService("RunService")
    end,
 })
 
+local Slider = Tab:CreateSlider({
+    Name = "Walkspeed",
+    Range = {16, 150},
+    Increment = 1,
+    Suffix = "WS",
+    CurrentValue = 16,
+    Callback = function(v)
+        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = _V.speed
+    end,
+})
+
 local Paragraph = Tab:CreateParagraph({Title = "Game:", Content = "None"})

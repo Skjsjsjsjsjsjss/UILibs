@@ -354,15 +354,18 @@ local rs = game:GetService("RunService")
    end,
 })
 
-local Slider = Tab:CreateSlider({
-    Name = "Walkspeed",
-    Range = {0, 1000},
-    Increment = 10,
-    Suffix = ".",
-    CurrentValue = 16,
-    Callback = function(s)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-    end,
+ScriptsTab:AddSlider({
+    Name = "Walk Speed",
+    Min = 0,
+    Max = 20,
+    Default = 5,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(Value)
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+       print("Changed Players WalkSpeed to: "..Value)
+    end
 })
 
 local Paragraph = Tab:CreateParagraph({Title = "Game:", Content = "None"})
